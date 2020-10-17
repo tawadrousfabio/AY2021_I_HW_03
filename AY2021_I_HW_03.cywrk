@@ -38,6 +38,7 @@
 <wrkspc_dependency project="ANCONA_ELENA.cydsn\ANCONA_ELENA.cyprj" dependency="..\..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
 <wrkspc_dependency project="ANDRIOTTO_LUCA.cydsn\ANDRIOTTO_LUCA.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
 <wrkspc_dependency project="TAWADROUS_FABIO.cydsn\TAWADROUS_FABIO.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
+<wrkspc_dependency project="TAWADROUS_FABIO.cydsn\TAWADROUS_FABIO.cyprj" dependency="..\Lab ele\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
 <wrkspc_dependency project="TASSO_ROSARIO_DAMIANO.cydsn\TASSO_ROSARIO_DAMIANO.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
 <wrkspc_dependency project="SALA_DAVIDE.cydsn\SALA_DAVIDE.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
 <wrkspc_dependency project="RESCALLI_ANDREA.cydsn\RESCALLI_ANDREA.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
