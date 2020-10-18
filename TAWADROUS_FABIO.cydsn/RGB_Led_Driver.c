@@ -7,7 +7,8 @@
 */
 
 #include "RGB_Led_Driver.h"
-
+extern uint8_t i;
+extern uint8_t rec;
 
 void RGBLed_Start(void)
 {
@@ -35,5 +36,22 @@ void RGBLed_WriteCmp(Cmp p)
     PWM_B_WriteCompare(p.blue_cmp);  //set the compare value of the k-th pattern in the red channel PWM
 }
 
+/**
+*   \brief On error: stop the timer, and reset the variable.
+*/
+void error(){
+    UART_Timer_Stop();
+    rec = 0;
+    i = 0;
+}
+
+/**
+*   \brief if data are ok: stop the timer, reset the i variable and set the received = 1.
+*/
+void sendtoapply(){
+    UART_Timer_Stop();
+    rec = 1;
+    i = 0;
+}
 
 /* [] END OF FILE */

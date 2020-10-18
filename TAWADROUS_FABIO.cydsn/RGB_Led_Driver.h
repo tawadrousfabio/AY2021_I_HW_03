@@ -11,34 +11,43 @@
     #define _RGB_LED_DRIVER_H_
     #include "project.h"
     
-    /**
-    *   \brief Struct holding the patterns data
-    */
+
     
+    /**
+    *   \brief Struct holding the color data
+    */
     typedef struct {
         uint8_t red_cmp;    //Red PWM compare value (0-255) 
-        uint8_t green_cmp;  //green PWM compare value (0-65535) 
-        uint8_t blue_cmp; //Red PWM compare type (1-4)
+        uint8_t green_cmp;  //green PWM compare value (0-255) 
+        uint8_t blue_cmp; //Red PWM compare type (0-255)
     } Cmp;
     
     
     /**
-    *   \brief Start RG(B) Led Driver.
+    *   \brief Start RGB Led Driver.
     */
     void RGBLed_Start(void);
     
     /**
-    *   \brief Stop RG(B) Led Driver.
+    *   \brief Stop RGB Led Driver.
     */
     void RGBLed_Stop(void);
     
     
     /**
-    *   \brief Generic function valid for all the 7 patterns which modify the PWMs values.
+    *   \brief Modiy the compare value of the 3 channels.
     */
     void RGBLed_WriteCmp(Cmp c);
     
-
+    /**
+    *   \brief Called when there is an error
+    */
+    void error();
+    
+    /**
+    *   \brief Called when data pass all the controls.
+    */
+    void sendtoapply();
 #endif
 
 /* [] END OF FILE */

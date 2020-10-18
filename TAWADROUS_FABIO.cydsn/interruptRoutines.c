@@ -14,51 +14,50 @@
 
 #include "UART.h"
 #include "stdio.h"
+#include "RGB_Led_Driver.h"
 
 extern uint8_t rec;
 extern uint8_t v[5];
 extern uint8_t i;
 
-static char message[20] = {'\0'};
-
-CY_ISR(myinterrupt)
+CY_ISR(Interrupt_RGB_LED_Handler)
 {
     
     if (UART_ReadRxStatus() == UART_RX_STS_FIFO_NOTEMPTY)
     {
         v[i] = UART_ReadRxData();
-        //sprintf(message, "Received: %d\r\n", v[i] );
-        //UART_PutString(message);
         i++;
-        //rec=1; 
+        UART_Timer_Start();
     }
     
     if (i > 4){
-         switch (v[0]){            
+           
+        switch (v[0]){  
+            
             case 0xA0:
-                if(v[4] == 0xC0){
-                    rec = 1;
-                    i=0;
-                } else{
+                if(v[4] == 0xC0) sendtoapply();
+                else{
                     UART_PutString("error:  be sure that the last byte is 'C0' \r\n");
-                    rec = 0;
-                    i=0;
+                    error();
                 }
-            break;
+                break;
                 
             default:
                 UART_PutString("error:  be sure that the first byte is 'A0' \r\n");
-                rec = 0;
-                i = 0;
-            break;
+                error();
+                break;
         }
-    } else if (i==1 && v[0] == 'v'){
+    } 
+    else if (i==1 && v[0] == 'v'){
         UART_PutString("RGB LED Program $$$");
-        rec = 0;
-        i = 0;
+        error();
     } 
     
+}
 
+CY_ISR(Interrupt_Timer_Handler){
+    UART_PutString("Communication error, time delay > 5s \r\n");
+    error();
 }
 
 /* [] END OF FILE */
