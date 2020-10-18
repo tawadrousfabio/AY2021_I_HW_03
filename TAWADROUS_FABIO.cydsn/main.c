@@ -27,9 +27,9 @@ int main(void)
     {
         if(rec==1){
             UART_PutString("hello world \r\n");
-            c.red_cmp = v[1];
-            c.green_cmp = v[2];
-            c.blue_cmp = v[3];
+            c.red_cmp = 255-v[1];
+            c.green_cmp = 255-v[2];
+            c.blue_cmp = 255-v[3];
             
             RGBLed_WriteCmp(c);
             rec = 0;

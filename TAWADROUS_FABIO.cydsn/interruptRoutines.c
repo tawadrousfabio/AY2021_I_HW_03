@@ -34,7 +34,7 @@ CY_ISR(myinterrupt)
         
     }
     
-    if(i==4){
+    if(i>4){
         rec = 1;
         i=0;
     }
