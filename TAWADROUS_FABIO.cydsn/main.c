@@ -10,32 +10,26 @@
  * ========================================
 */
 #include "project.h"
-#include "UART_InterruptRoutine.h"
-#include "RGLedDriver.h"
-
+#include "interruptRoutines.h"
+#include "RGB_Led_Driver.h"
 uint8_t rec = 0;
+uint8_t v[4];
 
 int main(void)
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
-
-    /* Place your initialization/startup code here (e.g. MyInst_Start()) */
-    // Start UART component
-    UART_Start();
-    // Send a string of chars
-    UART_PutString("Please, send a character!\r\n");
-    // Enable the isr
-    //isr_UART_StartEx(Custom_UART_RX_ISR);
-    
     RGBLed_Start();
+    UART_Start();
+    isr_UART_StartEx(myinterrupt);
     
-    Cmp p0 = {255, 255, 255};
-    Cmp p1 = {0, 0, 0};
-    RGBLed_WriteCmp(p1);
-    
+
     for(;;)
     {
-
+        if(rec==1){
+            UART_PutString("hello world \r\n");
+            rec = 0;
+        }
+        
     }
 }
 

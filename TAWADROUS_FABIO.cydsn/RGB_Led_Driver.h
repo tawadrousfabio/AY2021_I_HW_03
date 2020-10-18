@@ -19,9 +19,6 @@
         uint8_t red_cmp;    //Red PWM compare value (0-255) 
         uint8_t green_cmp;  //green PWM compare value (0-65535) 
         uint8_t blue_cmp; //Red PWM compare type (1-4)
-        //uint8_t green_cmp_type; //Green PWM compare type (1-4)
-        //uint16_t red_period; //Red PWM period (max 65535)
-        //uint16_t green_period; //Green PWM period (max 65535)
     } Cmp;
     
     

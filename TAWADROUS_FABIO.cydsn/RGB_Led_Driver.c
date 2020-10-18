@@ -6,10 +6,7 @@
 *   is being implemented.
 */
 
-#include "RGLedDriver.h"
-
-//static void RGLed_WriteRedCmp(uint16_t redcmp, uint8_t redtype, uint16_t redperiod);       //Set the Red-channel PWM parameters
-//static void RGLed_WriteGreenCmp(uint16_t greencmp, uint8_t greentype, uint16_t greenperiod);   //Set the Green-channel PWM parameters
+#include "RGB_Led_Driver.h"
 
 
 void RGBLed_Start(void)
@@ -27,16 +24,6 @@ void RGBLed_Stop(void)
     PWM_G_Stop();
     PWM_B_Stop();
 }
-
-/**
-*   \brief This function is specific for the PWM red channel, and modifies the compare value & type, and the period.
-
-void RGLed_WriteCmp(Cmp p)
-{
-    RGLed_WriteRedCmp(p.red_cmp, p.red_cmp_type, p.red_period); //set the red channel
-    RGLed_WriteGreenCmp(p.green_cmp, p.green_cmp_type, p.green_period); //set the green channel
-}
-*/
 
 /**
 *   \brief This function is specific for the PWM red channel, and modifies the compare value & type, and the period.
