@@ -1,12 +1,8 @@
 /**
-*   \brief Header code for RG(B) Led Driver.
-*   \author: Fabio Tawadrous
-
-*   I decided to define a struct type, in order to be 
-*   able to use then an array of 7 structs (one for each pattern),
-*   which allow to avoid the switch-case during the implementation.
-*   
+*   \brief Header code for RGB Led Driver.
+*   \author: Fabio Tawadrous   
 */
+
 #ifndef _RGB_LED_DRIVER_H_
     #define _RGB_LED_DRIVER_H_
     #include "project.h"
@@ -24,23 +20,23 @@
     
     
     /**
-    *   \brief Start RGB Led Driver.
+    *   \brief Start RGB Led Driver (PWMs).
     */
     void RGBLed_Start(void);
     
     /**
-    *   \brief Stop RGB Led Driver.
+    *   \brief Stop RGB Led Driver (PWMs).
     */
     void RGBLed_Stop(void);
     
     
     /**
-    *   \brief Modiy the compare value of the 3 channels.
+    *   \brief Modiy the compare value of the RGB channels.
     */
     void RGBLed_WriteCmp(Cmp c);
     
     /**
-    *   \brief Called when there is an error
+    *   \brief Function called when there is an error
     */
     void error();
     

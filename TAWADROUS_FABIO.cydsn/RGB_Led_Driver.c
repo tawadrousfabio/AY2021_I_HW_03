@@ -10,39 +10,43 @@
 extern uint8_t i;
 extern uint8_t rec;
 
+/**
+*   \brief Start PWMs
+*/
 void RGBLed_Start(void)
 {
-    // Start PWM Components
     PWM_R_Start(); // Start PWM connected to red channel
-    PWM_G_Start(); // Start PWM connected to green channel
-    PWM_B_Start(); // Start PWM connected to blue channel
+    PWM_G_Start(); 
+    PWM_B_Start(); 
 }
 
+/**
+*   \brief Stop PWMs
+*/
 void RGBLed_Stop(void)
 {
-    // Stop PWM Components
     PWM_R_Stop(); 
     PWM_G_Stop();
     PWM_B_Stop();
 }
 
 /**
-*   \brief This function is specific for the PWM red channel, and modifies the compare value & type, and the period.
+*   \brief This function is specific for the 3 PWMs, and modifies the compare value for each color.
 */
 void RGBLed_WriteCmp(Cmp p)
 {
-    PWM_R_WriteCompare(p.red_cmp);  //set the compare value of the k-th pattern in the red channel PWM
-    PWM_G_WriteCompare(p.green_cmp);  //set the compare value of the k-th pattern in the red channel PWM
-    PWM_B_WriteCompare(p.blue_cmp);  //set the compare value of the k-th pattern in the red channel PWM
+    PWM_R_WriteCompare(p.red_cmp);  //set the compare value of the red channel 
+    PWM_G_WriteCompare(p.green_cmp); 
+    PWM_B_WriteCompare(p.blue_cmp);  
 }
 
 /**
-*   \brief On error: stop the timer, and reset the variable.
+*   \brief On error: stop the timer, and reset the variables.
 */
 void error(){
     UART_Timer_Stop();
-    rec = 0;
-    i = 0;
+    rec = 0; //this avoid data to be sent to c
+    i = 0;  //if arrives new data, they will be stored from the beginning of the vector
 }
 
 /**
@@ -50,7 +54,7 @@ void error(){
 */
 void sendtoapply(){
     UART_Timer_Stop();
-    rec = 1;
+    rec = 1; //in this way, data are sent to main.c
     i = 0;
 }
 
