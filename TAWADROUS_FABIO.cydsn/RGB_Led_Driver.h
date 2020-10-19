@@ -14,8 +14,8 @@
     */
     typedef struct {
         uint8_t red_cmp;    //Red PWM compare value (0-255) 
-        uint8_t green_cmp;  //green PWM compare value (0-255) 
-        uint8_t blue_cmp; //Red PWM compare type (0-255)
+        uint8_t green_cmp;  //green 
+        uint8_t blue_cmp;   //blue
     } Cmp;
     
     

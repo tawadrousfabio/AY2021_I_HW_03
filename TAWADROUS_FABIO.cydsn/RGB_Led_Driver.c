@@ -15,8 +15,7 @@ extern uint8_t rec;
 */
 void RGBLed_Start(void)
 {
-    PWM_R_Start(); // Start PWM connected to red channel
-    PWM_G_Start(); 
+    PWM_RG_Start(); // Start PWM connected to red channel
     PWM_B_Start(); 
 }
 
@@ -25,18 +24,17 @@ void RGBLed_Start(void)
 */
 void RGBLed_Stop(void)
 {
-    PWM_R_Stop(); 
-    PWM_G_Stop();
+    PWM_RG_Stop(); 
     PWM_B_Stop();
 }
 
 /**
-*   \brief This function is specific for the 3 PWMs, and modifies the compare value for each color.
+*   \brief  Modifies the compare value for each color.
 */
 void RGBLed_WriteCmp(Cmp p)
 {
-    PWM_R_WriteCompare(p.red_cmp);  //set the compare value of the red channel 
-    PWM_G_WriteCompare(p.green_cmp); 
+    PWM_RG_WriteCompare1(p.red_cmp);  //set the compare value of the red channel 
+    PWM_RG_WriteCompare2(p.green_cmp); 
     PWM_B_WriteCompare(p.blue_cmp);  
 }
 
@@ -50,7 +48,7 @@ void error(){
 }
 
 /**
-*   \brief if data are ok: stop the timer, reset the i variable and set the received = 1.
+*   \brief if header and tail are correct: stop the timer, reset the i variable and set the flag = 1.
 */
 void sendtoapply(){
     UART_Timer_Stop();

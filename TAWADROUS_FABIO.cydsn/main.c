@@ -25,7 +25,7 @@ int main(void)
     isr_UART_StartEx(Interrupt_RGB_LED_Handler);
     isr_Timer_StartEx(Interrupt_Timer_Handler);
     
-    RGBLed_WriteCmp(c); //write the values of the "black led"
+    RGBLed_WriteCmp(c); //write the RGB values of the "black led"
 
     for(;;)
     {
@@ -37,7 +37,7 @@ int main(void)
             c.green_cmp = 255-v[2];
             c.blue_cmp = 255-v[3];
             
-            RGBLed_WriteCmp(c); //write the new values
+            RGBLed_WriteCmp(c); //write the new values on led
             
             //reset the index and flag
             i=0;
