@@ -38,9 +38,11 @@ CY_ISR(Interrupt_RGB_LED_Handler)
             UART_PutString("RGB LED Program $$$"); //for GUI use
             error();
             break;
-        default: //any character != 0xA0 and 'v'         
+        default: //any character != 0xA0 and 'v'       
+            if(i==1){
             error();
             break;
+            }
     }
 }
 
