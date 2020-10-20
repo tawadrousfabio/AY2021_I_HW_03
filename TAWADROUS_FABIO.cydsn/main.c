@@ -1,6 +1,6 @@
 /**
 *   \file main.c
-*   \brief Project aim: to control a RGB led through a serial port and cool term or a GUI
+*   \brief Project aim: to control a RGB led through a serial port using cool term or a GUI
 *   \author: Fabio Tawadrous
 */
 
@@ -36,7 +36,7 @@ int main(void)
                 c.red_cmp = 255-v[1];
                 c.green_cmp = 255-v[2];
                 c.blue_cmp = 255-v[3];
-            
+
                 RGBLed_WriteCmp(c); //write the new values on led
             
                 //reset the index and flag

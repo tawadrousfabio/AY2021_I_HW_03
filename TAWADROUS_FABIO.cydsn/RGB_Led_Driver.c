@@ -43,8 +43,8 @@ void RGBLed_WriteCmp(Cmp p)
 */
 void error(){
     UART_Timer_Stop();
-    rec = 0; //this avoid data to be sent to c
-    i = 0;  //if arrives new data, they will be stored from the beginning of the vector
+    rec = 0; //put the flag = 0
+    i = 0;  //if arrives a new byte, it will be stored from the beginning of the array
 }
 
 /**
@@ -52,7 +52,7 @@ void error(){
 */
 void sendtoapply(){
     UART_Timer_Stop();
-    rec = 1; //in this way, data are sent to main.c
+    rec = 1; //flag = 1. In this way, data are sent to main.c
     i = 0;
 }
 

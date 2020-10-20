@@ -23,11 +23,12 @@ CY_ISR(Interrupt_RGB_LED_Handler)
         UART_Timer_Init(); //and reset it
     }
     
+    
     //CONTROLS
     switch (v[0]){  
         case 0xA0: //Check correct header
             if(i>4){
-                if(v[4] == 0xC0) sendtoapply(); //if also correct tail, then send data.
+                if(v[4] == 0xC0) sendtoapply(); //if also tail is correct put flag = 1 and reset i.
                 else{
                     UART_PutString("error:  be sure that the last byte is 'C0' \r\n");
                     error(); //if the tail is not the correct one, reset i and rec
