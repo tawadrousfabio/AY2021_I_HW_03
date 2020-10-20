@@ -30,7 +30,6 @@ int main(void)
     for(;;)
     {
         if(rec==1){
-            if(v[0] == 0xA0){
                 UART_PutString("Color changed \r\n");
             
                 //set the new RGB values (0 = min, 255 = max)
@@ -43,10 +42,6 @@ int main(void)
                 //reset the index and flag
                 i=0;
                 rec = 0;
-            } else {
-                UART_PutString("error:  be sure that the first byte is 'A0' \r\n");
-                error();
-            } 
         } 
     }
 }

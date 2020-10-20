@@ -39,10 +39,8 @@ CY_ISR(Interrupt_RGB_LED_Handler)
             error();
             break;
         default: //any character != 0xA0 and 'v'       
-            if(i==1){
             error();
             break;
-            }
     }
 }
 
